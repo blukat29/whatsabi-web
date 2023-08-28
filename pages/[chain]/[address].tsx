@@ -34,7 +34,7 @@ export default function ABI(props: Props) {
       <HeadMeta title={`Signatures for ${props.address}`} description={`ABI signatures for ${props.address}`} />
       <h1>
         Signatures for{' '}
-        <a href={`https://etherscan.io/address/${props.address}`} target="_blank" rel="noreferrer">
+        <a href={`https://scope.klaytn.com/account/${props.address}`} target="_blank" rel="noreferrer">
           {props.address}
         </a>
       </h1>
@@ -122,19 +122,22 @@ function SelectorWithSignatures(props: { selector: string; signatures: Signature
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({ params, res }) => {
   const address = params?.address as string;
-  let chain: string | number = params?.chain as string;
-
-  if (chain === 'mainnet') {
-    chain = 1;
-  }
-
-  if (!process.env.ALCHEMY_API_KEY) {
-    console.warn('ALCHEMY_API_KEY not set');
-  }
-
-  const provider = new ethers.providers.AlchemyProvider(
-    isNaN(Number(chain)) ? chain : Number(chain),
-    process.env.ALCHEMY_API_KEY
+//  let chain: string | number = params?.chain as string;
+//
+//  if (chain === 'mainnet') {
+//    chain = 1;
+//  }
+//
+//  if (!process.env.ALCHEMY_API_KEY) {
+//    console.warn('ALCHEMY_API_KEY not set');
+//  }
+//
+//  const provider = new ethers.providers.AlchemyProvider(
+//    isNaN(Number(chain)) ? chain : Number(chain),
+//    process.env.ALCHEMY_API_KEY
+//  );
+  const provider = new ethers.providers.JsonRpcProvider(
+    "https://public-en-cypress.klaytn.net"
   );
 
   const code = await provider.getCode(address);

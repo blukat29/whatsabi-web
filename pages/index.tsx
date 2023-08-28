@@ -11,10 +11,10 @@ const Home: NextPage = () => {
       <HeadMeta title="ABI for unverified contracts" description="Guess ABI of any Ethereum contract" />
 
       <main className="main">
-        <h1 className="title">Get ABI for unverified contracts</h1>
+        <h1 className="title">Get ABI for unverified contracts (Klaytn Cypress)</h1>
 
         <p className="description">
-          Guess ABI of any Ethereum contract, even if it is not verified on Etherscan. Works by analyzing the bytecode,
+          Guess ABI of any EVM contract, even if it is not verified on KlaytnFinder/KlaytnScope. Works by analyzing the bytecode,
           extracting selectors from PUSH4/JUMPI instructions and comparing them to known ABI signatures.
         </p>
 
@@ -34,11 +34,11 @@ const Home: NextPage = () => {
         </form>
         <p className="description">Or try some examples:</p>
         <p className="description">
-          <a href="/mainnet/0x7a250d5630b4cf539739df2c5dacb4c659f2488d">0x7a250d5630b4cf539739df2c5dacb4c659f2488d</a>
+          <a href="/cypress/0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167">0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167 (oUSDT)</a>
           <br />
-          <a href="/mainnet/0x2d8a1e139cb15319b1f325eb917c9c704f45db7c">0x2d8a1e139cb15319b1f325eb917c9c704f45db7c</a>
+          <a href="/cypress/0x5a7a5ef2a189d4b6fac6bcf9a9b533f9b9ca719e">0x5a7a5ef2a189d4b6fac6bcf9a9b533f9b9ca719e (CnStakingV2)</a>
           <br />
-          <a href="/mainnet/0xaE9C73fd0Fd237c1c6f66FE009d24ce969e98704">0xaE9C73fd0Fd237c1c6f66FE009d24ce969e98704</a>
+          <a href="/cypress/0xd5ad6d61dd87edabe2332607c328f5cc96aecb95">0xd5ad6d61dd87edabe2332607c328f5cc96aecb95 (TreasuryRebalance)</a>
         </p>
 
         <Footer />
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
       <style jsx>{`
         .main {
           padding: 2rem;
-          max-width: 60ch;
+          max-width: 80ch;
         }
         form {
           display: flex;
